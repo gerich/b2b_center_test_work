@@ -12,26 +12,26 @@ function parse($str) {
         parse_str($components['query'], $params);
     }
 
-    if (array_key_exists('3', $params)) {
-        unset($params['3']);
+    while ($key = array_search('3', $params, true)) {
+        unset($params[$key]);
     }
 
     if ($params) {
-        asort($params);
+        arsort($params);
     }
 
     if (isset($components['path'])) {
         $params['url'] = $components['path'];
     }
 
-    $query = '';
+    $query = [];
     foreach ($params as $key => $value) {
-        $query .= $key . '=' . urlencode($value);
+        $query[] = $key . '=' . urlencode($value);
     }
 
     $result = $components['scheme']  . '://'
         . $components['host'] . '/?'
-        . $query;
+        . implode('&', $query);
 
     return $result;
 }
