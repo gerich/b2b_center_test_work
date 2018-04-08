@@ -12,6 +12,7 @@ function loadUsersData($user_ids)
 {
     /** @var int[] $userIds */
     $userIds = array_map('intval', explode(',', $user_ids));
+    // TODO заменить реквизиты доступа к БД
     $db  = new PDO('mysql:host=localhost;dbname=testdb', "testuser", "password");
     $stmt = $db->prepare('SELECT name FROM users WHERE id=:user');
     $data = [];
