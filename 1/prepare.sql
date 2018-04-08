@@ -31,4 +31,5 @@ INSERT INTO phone_numbers SET user_id = 3, phone = '+79151112233';
 
 INSERT INTO phone_numbers SET user_id = 4, phone = '+79031234567';
 INSERT INTO phone_numbers SET user_id = 4, phone = '+79039998877';
+INSERT INTO phone_numbers SET user_id = 4, phone = '+79033332211';
 
